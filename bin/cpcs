@@ -21,4 +21,4 @@ fi
 	--runtime-set text_domain "$CPCS_TEXTDOMAIN" \
 	--runtime-set installed_paths "$WPCS_DIR" \
 	--standard="$(dirname "$0")/../phpcs.xml" \
-	-s -v "$@"
+	-s "$@"
