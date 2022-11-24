@@ -17,8 +17,15 @@ if [ ! -d "$WPCS_DIR" ] || [ ! -x "$WPCS_DIR/vendor/bin/phpcs" ]; then
 	exit 1
 fi
 
+if [ -t 1 ] ; then
+	COLOR=""
+else
+	COLOR="--no-colors";
+fi
+
 "$WPCS_DIR/vendor/bin/phpcs" \
+	$COLOR \
 	--runtime-set text_domain "$CPCS_TEXTDOMAIN" \
 	--runtime-set installed_paths "$WPCS_DIR" \
 	--standard="$(dirname "$0")/../phpcs.xml" \
-	-s -v "$@"
+	-s "$@"

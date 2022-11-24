@@ -9,7 +9,7 @@ These instructions assume the use of Linux, OS X or Windows Subsystem for Linux.
 1. Create a directory dedicated to this project (e.g. `/home/username/cp-plugin-review`)
 2. Change to the directory (`cd /home/username/cp-plugin-review`)
 3. Install WPCS v2.3.0: `composer create-project wp-coding-standards/wpcs wpcs 2.3.0 --no-dev --prefer-dist --keep-vcs` ([more info](https://github.com/WordPress/WordPress-Coding-Standards#installation)). Now, WPCS should be installed into the `wpcs` subdirectory.
-4. Clone this repository (`git clone https://github.com/TukuToi/CP-Coding-Standards`).
+4. Clone this repository (`git clone https://github.com/ClassicPress/ClassicPress-Coding-Standards`).
 
 ## Usage
 
@@ -17,7 +17,7 @@ These instructions assume the use of Linux, OS X or Windows Subsystem for Linux.
 2. Clone the plugin you want to analyze (`git clone https://github.com/azurecurve/azrcrv-redirect`).
 3. Change to the plugin's directory (`cd azrcrv-redirect`).
 4. Make note of the plugin's textdomain in the main PHP file (in this case, `azrcrv-r`).
-5. Run the `bin/cpcs` script from this repository as follows: `CPCS_TEXTDOMAIN=azrcrv-r ../CP-Coding-Standards/bin/cpcs .`
+5. Run the `bin/cpcs` script from this repository as follows: `CPCS_TEXTDOMAIN=azrcrv-r ../ClassicPress-Coding-Standards/bin/cpcs .`
 
 If you wish to show all warnings/errors even if they have been suppressed by `// phpcs:ignore` comments in the code, then add `--ignore-annotations` to the end of the above command line.
 
