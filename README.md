@@ -1,4 +1,4 @@
-# CP-Coding-Standards
+# ClassicPress-Coding-Standards
 
 Proposed ClassicPress coding standards for reviewing plugins/themes, presented as a WPCS phpcs.xml ruleset.
 
