@@ -17,10 +17,6 @@
 	<config name="minimum_supported_wp_version" value="1.0.0"/>
 
 	<!-- The Custom Text Domain of this Plugin or Theme -->
-	<![CDATA[
-		Override this with `--runtime-set text_domain plugin-domain` on command line.
-		See: https://github.com/WordPress/WordPress-Coding-Standards/blob/2.3.0/WordPress/Sniffs/WP/I18nSniff.php#L195-L196
-	]]>
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
@@ -28,6 +24,9 @@
 			</property>
 		</properties>
 	</rule>
+
+	<!-- Exclude managed libraries -->
+	<exclude-pattern>/vendor/</exclude-pattern>
 
 	<!-- PHP Version Test. Uncomment to use. Install with https://github.com/PHPCompatibility/PHPCompatibility#installation-via-a-git-check-out-to-an-arbitrary-directory-method-2. -->
 	<!-- <config name="testVersion" value="5.2-"/>
@@ -45,127 +44,76 @@
 	<rule ref="WordPress">
 
 		<!-- Remove WP rules in Bulk -->
+		<exclude name="WordPress.Arrays"/>
 		<exclude name="WordPress.Files.FileName"/>
 		<exclude name="WordPress.NamingConventions"/>
 		<exclude name="WordPress.WhiteSpace"/>
 
-		<!-- These rules are already excluded with above bulk rule-exclusions
-		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
-		<exclude name="WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase"/>
-		<exclude name="WordPress.NamingConventions.ValidVariableName.VariableNotSnakeCase"/>
-		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing"/>
-		<exclude name="WordPress.WhiteSpace.DisallowInlineTabs.NonIndentTabsUsed"/>
-		<exclude name="WordPress.WhiteSpace.OperatorSpacing.NoSpaceAfter"/>
-		<exclude name="WordPress.WhiteSpace.OperatorSpacing.NoSpaceBefore"/>
-		<exclude name="WordPress.WhiteSpace.PrecisionAlignment.Found"/>
-		-->
-
 		<!-- Remove WP Specific rules. -->
-		<exclude name="WordPress.Arrays.ArrayDeclarationSpacing.AssociativeArrayFound"/>
-		<exclude name="WordPress.Arrays.ArrayDeclarationSpacing.ArrayItemNoNewLine"/>
-		<exclude name="WordPress.Arrays.ArrayDeclarationSpacing.NoSpaceAfterArrayOpener"/>
-		<exclude name="WordPress.Arrays.ArrayDeclarationSpacing.NoSpaceBeforeArrayCloser"/>
-		<exclude name="WordPress.Arrays.ArrayDeclarationSpacing.SpaceAfterKeyword"/>
-		<exclude name="WordPress.Arrays.ArrayIndentation.ItemNotAligned"/>
-		<exclude name="WordPress.Arrays.ArrayIndentation.CloseBraceNotAligned"/>
-		<exclude name="WordPress.Arrays.ArrayKeySpacingRestrictions.NoSpacesAroundArrayKeys"/>
-		<exclude name="WordPress.Arrays.ArrayKeySpacingRestrictions.SpacesAroundArrayKeys"/>
-		<exclude name="WordPress.Arrays.CommaAfterArrayItem.CommaAfterLast"/>
-		<exclude name="WordPress.Arrays.CommaAfterArrayItem.NoComma"/>
-		<exclude name="WordPress.Arrays.CommaAfterArrayItem.NoSpaceAfterComma"/>
-		<exclude name="WordPress.Arrays.CommaAfterArrayItem.SpaceAfterComma"/>
-		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned"/>
 		<exclude name="WordPress.Classes.ClassInstantiation.MissingParenthesis"/>
 		<exclude name="WordPress.CodeAnalysis.AssignmentInCondition.Found"/>
-		<exclude name="WordPress.CodeAnalysis.AssignmentInCondition.FoundInWhileCondition"/>
-		<exclude name="WordPress.CodeAnalysis.EmptyStatement.SemicolonWithoutCodeDetected"/>
 		<exclude name="WordPress.DB.DirectDatabaseQuery.DirectQuery"/>
 		<exclude name="WordPress.DB.DirectDatabaseQuery.NoCaching"/>
-		<exclude name="WordPress.DB.SlowDBQuery.slow_db_query_meta_key"/>
-		<exclude name="WordPress.DB.SlowDBQuery.slow_db_query_meta_value"/>
+		<exclude name="WordPress.PHP.DisallowShortTernary.Found"/>
 		<exclude name="WordPress.PHP.StrictComparisons.LooseComparison"/>
 		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict"/>
 		<exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
+		<exclude name="WordPress.Security.ValidatedSanitizedInput.InputNotValidated"/>
+		<exclude name="WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents"/>
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.MissingVersion"/>
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.NoExplicitVersion"/>
-		<exclude name="WordPress.WP.I18n.UnorderedPlaceholdersText"/>
 
 		<!-- Remove Squiz rules in Bulk -->
 		<exclude name="Squiz.Commenting"/>
+		<exclude name="Squiz.ControlStructures"/>
 		<exclude name="Squiz.NamingConventions"/>
 		<exclude name="Squiz.WhiteSpace"/>
-		<exclude name="Squiz.ControlStructures"/>
 
 		<!-- Remove Squiz Specific rules -->
 		<exclude name="Squiz.Arrays.ArrayBracketSpacing.SpaceBeforeBracket"/>
-		<exclude name="Squiz.PHP.DisallowSizeFunctionsInLoops.Found"/>
 		<exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceAfterEquals"/>
 		<exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeEquals"/>
 		<exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen"/>
-		<exclude name="Squiz.Scope.MethodScope.Missing"/>
 		<exclude name="Squiz.Operators.IncrementDecrementUsage.Found"/>
 		<exclude name="Squiz.Operators.ValidLogicalOperators.NotAllowed"/>
 		<exclude name="Squiz.PHP.CommentedOutCode.Found"/>
 		<exclude name="Squiz.PHP.DisallowMultipleAssignments.Found"/>
 		<exclude name="Squiz.PHP.DisallowMultipleAssignments.FoundInControlStructure"/>
-		<exclude name="Squiz.PHP.EmbeddedPhp.ContentAfterEnd"/>
+		<exclude name="Squiz.PHP.EmbeddedPhp.ContentAfterOpen"/>
 		<exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeEnd"/>
 		<exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeOpen"/>
 		<exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon"/>
-		<exclude name="Squiz.PHP.EmbeddedPhp.SpacingBeforeClose"/>
 		<exclude name="Squiz.Strings.ConcatenationSpacing.PaddingFound"/>
 		<exclude name="Squiz.Strings.DoubleQuoteUsage.NotRequired"/>
 
 		<!-- Remove PEAR rules in Bulk -->
 		<exclude name="PEAR.Commenting"/>
 		<exclude name="PEAR.Functions.FunctionCallSignature"/>
-		<exclude name="PEAR.NamingConventions"/>
 
 		<!-- Remove PEAR Specific rules -->
 		<exclude name="PEAR.Files.IncludingFile.BracketsNotRequired"/>
 
-		<!-- Remove PSR2 Specific rules -->
-		<exclude name="PSR2.Classes.PropertyDeclaration.Underscore"/>
-		<exclude name="PSR2.ControlStructures.ElseIfDeclaration.NotAllowed"/>
-		<exclude name="PSR2.ControlStructures.SwitchDeclaration.BreakIndent"/>
-		<exclude name="PSR2.ControlStructures.SwitchDeclaration.BodyOnNextLineCASE"/>
-		<exclude name="PSR2.ControlStructures.SwitchDeclaration.SpaceBeforeColonCASE"/>
-		<exclude name="PSR2.Files.ClosingTag.NotAllowed"/>
-		<exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
+		<!-- Remove PSR2 rules in Bulk -->
+		<exclude name="PSR2.ControlStructures"/>
+		<exclude name="PSR2.Namespaces"/>
 
-		<!-- Remove PSR12 Specific rules -->
-		<exclude name="PSR12.Keywords.ShortFormTypeKeywords.LongFound"/>
+		<!-- Remove PSR2 Specific rules -->
 
 		<!-- Remove Generic rules in Bulk -->
+		<exclude name="Generic.Classes"/>
 		<exclude name="Generic.Commenting"/>
 		<exclude name="Generic.Files"/>
 		<exclude name="Generic.Formatting"/>
-		<exclude name="Generic.NamingConventions"/>
+		<exclude name="Generic.Functions"/>
 		<exclude name="Generic.WhiteSpace"/>
 
 		<!-- Remove Generic Specific rules -->
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found"/>
-		<exclude name="Generic.Classes.OpeningBraceSameLine.BraceOnNewLine"/>
-		<exclude name="Generic.Classes.OpeningBraceSameLine.SpaceBeforeBrace"/>
-		<exclude name="Generic.CodeAnalysis.ForLoopWithTestFunctionCall.NotAllowed"/>
-		<exclude name="Generic.ControlStructures.InlineControlStructure.NotAllowed"/>
-		<exclude name="Generic.Functions.FunctionCallArgumentSpacing.NoSpaceAfterComma"/>
 		<exclude name="Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma"/>
-		<exclude name="Generic.Functions.FunctionCallArgumentSpacing.SpaceBeforeComma"/>
-		<exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie.BraceOnNewLine"/>
-		<exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie.SpaceBeforeBrace"/>
 		<exclude name="Generic.PHP.ClosingPHPTag.NotFound"/>
-		<exclude name="Generic.PHP.LowerCaseConstant.Found"/>
-		<exclude name="Generic.PHP.LowerCaseKeyword.Found"/>
 		<exclude name="Generic.PHP.RequireStrictTypes.MissingDeclaration"/>
+		<exclude name="Generic.Strings.UnnecessaryStringConcat"/>
 
-	</rule>
-
-	<!-- Do not check Colon Spaces -->
-	<rule ref="WordPress.WhiteSpace.ControlStructureSpacing">
-		<properties>
-			<property name="space_before_colon" value="optional"/>
-		</properties>
 	</rule>
 
 	<!-- Do not check for translator comments when placeholder is included -->
@@ -175,35 +123,10 @@
 		</properties>
 	</rule>
 
-	<!-- Do not force Array member alignment -->
-	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
-		<properties>
-			<property name="exact" value="false"/>
-		</properties>
-	</rule>
-
-	<!-- Do not check stray blank lines -->
-	<rule ref="WordPress.WhiteSpace.ControlStructureSpacing">
-		<properties>
-			<property name="blank_line_after_check" value="false"/>
-		</properties>
-	</rule>
-
-	<!-- Do not enforce file names -->
-	<rule ref="WordPress.Files.FileName">
-		<properties>
-			<property name="strict_class_file_names" value="false"/>
-		</properties>
-	</rule>
-
 	<!-- Do Detect error silencing, so no one can cheat -->
 	<rule ref="WordPress.PHP.NoSilencedErrors">
 		<properties>
 			<property name="context_length" value="100"/>
-		</properties>
-	</rule>
-	<rule ref="WordPress.PHP.NoSilencedErrors">
-		<properties>
 			<property name="use_default_whitelist" value="false"/>
 		</properties>
 	</rule>
