@@ -10,11 +10,23 @@ fi
 
 # wpcs needs an absolute path for installed_paths.
 WPCS_DIR="$(cd "$(dirname "$0")"; cd ../..; echo "$(pwd)/wpcs")"
+PHPCS="$WPCS_DIR/vendor/bin/phpcs"
 
-if [ ! -d "$WPCS_DIR" ] || [ ! -x "$WPCS_DIR/vendor/bin/phpcs" ]; then
+if [ ! -d "$WPCS_DIR" ]; then
 	echo "Please install WPCS into $WPCS_DIR :"
 	echo "https://github.com/WordPress/WordPress-Coding-Standards#installation"
 	exit 1
+fi
+
+if [ ! -x "$PHPCS" ]; then
+	PHPCS=`which phpcs`
+	if [ ! -x "$PHPCS" ]; then
+		echo "Please install WPCS into $WPCS_DIR :"
+		echo "https://github.com/WordPress/WordPress-Coding-Standards#installation"
+		exit 1
+	else
+		echo "Warning: using $PHPCS"
+	fi
 fi
 
 if [ -t 1 ] ; then
@@ -23,7 +35,7 @@ else
 	COLOR="--no-colors";
 fi
 
-"$WPCS_DIR/vendor/bin/phpcs" \
+"$PHPCS" \
 	$COLOR \
 	--runtime-set text_domain "$CPCS_TEXTDOMAIN" \
 	--runtime-set installed_paths "$WPCS_DIR" \
