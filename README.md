@@ -11,6 +11,8 @@ These instructions assume the use of Linux, OS X or Windows Subsystem for Linux.
 3. Install WPCS v2.3.0: `composer create-project wp-coding-standards/wpcs wpcs 2.3.0 --no-dev --prefer-dist --keep-vcs` ([more info](https://github.com/WordPress/WordPress-Coding-Standards#installation)). Now, WPCS should be installed into the `wpcs` subdirectory.
 4. Clone this repository (`git clone https://github.com/ClassicPress/ClassicPress-Coding-Standards`).
 
+*If step 3 fails, you can try going on. The script will use the globally installed version of `phpcs` if there is one.*
+
 ## Usage
 
 1. Change back to your plugin-review directory (`cd /home/username/cp-plugin-review`)
