@@ -82,6 +82,7 @@
 		<exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeEnd"/>
 		<exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeOpen"/>
 		<exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon"/>
+		<exclude name="Squiz.PHP.EmbeddedPhp.SpacingBeforeClose"/>
 		<exclude name="Squiz.Strings.ConcatenationSpacing.PaddingFound"/>
 		<exclude name="Squiz.Strings.DoubleQuoteUsage.NotRequired"/>
 
@@ -97,6 +98,7 @@
 		<exclude name="PSR2.Namespaces"/>
 
 		<!-- Remove PSR2 Specific rules -->
+		<exclude name="PSR2.Files.ClosingTag.NotAllowed"/>
 
 		<!-- Remove Generic rules in Bulk -->
 		<exclude name="Generic.Classes"/>
@@ -108,8 +110,10 @@
 
 		<!-- Remove Generic Specific rules -->
 		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found"/>
+		<exclude name="Generic.ControlStructures.InlineControlStructure.NotAllowed"/>
 		<exclude name="Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma"/>
 		<exclude name="Generic.PHP.ClosingPHPTag.NotFound"/>
+		<exclude name="Generic.PHP.LowerCaseKeyword.Found"/>
 		<exclude name="Generic.PHP.RequireStrictTypes.MissingDeclaration"/>
 		<exclude name="Generic.Strings.UnnecessaryStringConcat"/>
 
