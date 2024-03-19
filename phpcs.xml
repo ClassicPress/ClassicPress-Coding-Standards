@@ -61,6 +61,7 @@
 		<exclude name="WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents"/>
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.MissingVersion"/>
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.NoExplicitVersion"/>
+		<exclude name="WordPress.WP.EnqueuedResourceParameters.NotInFooter"/>
 
 		<!-- Remove Squiz rules in Bulk -->
 		<exclude name="Squiz.Commenting"/>
