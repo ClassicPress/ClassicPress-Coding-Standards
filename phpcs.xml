@@ -92,9 +92,11 @@
 		<!-- Remove PEAR rules in Bulk -->
 		<exclude name="PEAR.Commenting"/>
 		<exclude name="PEAR.Functions.FunctionCallSignature"/>
+		<exclude name="PEAR.NamingConventions"/>
 
 		<!-- Remove PEAR Specific rules -->
 		<exclude name="PEAR.Files.IncludingFile.BracketsNotRequired"/>
+		<exclude name="PEAR.Files.IncludingFile.UseRequire"/>
 
 		<!-- Remove PSR2 rules in Bulk -->
 		<exclude name="PSR2.ControlStructures"/>
@@ -102,6 +104,8 @@
 
 		<!-- Remove PSR2 Specific rules -->
 		<exclude name="PSR2.Files.ClosingTag.NotAllowed"/>
+		<exclude name="PSR2.Classes.PropertyDeclaration.Underscore"/>
+		<exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
 
 		<!-- Remove Generic rules in Bulk -->
 		<exclude name="Generic.Classes"/>
