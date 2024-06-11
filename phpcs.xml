@@ -101,6 +101,7 @@
 		<!-- Remove PSR2 rules in Bulk -->
 		<exclude name="PSR2.ControlStructures"/>
 		<exclude name="PSR2.Namespaces"/>
+		<exclude name="PSR2.Classes.PropertyDeclaration"/>
 
 		<!-- Remove PSR2 Specific rules -->
 		<exclude name="PSR2.Files.ClosingTag.NotAllowed"/>
