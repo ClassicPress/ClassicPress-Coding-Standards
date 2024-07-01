@@ -83,6 +83,7 @@
 		<exclude name="Squiz.PHP.EmbeddedPhp.ContentAfterOpen"/>
 		<exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeEnd"/>
 		<exclude name="Squiz.PHP.EmbeddedPhp.ContentBeforeOpen"/>
+		<exclude name="Squiz.PHP.EmbeddedPhp.MultipleStatements"/>
 		<exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon"/>
 		<exclude name="Squiz.PHP.EmbeddedPhp.SpacingBeforeClose"/>
 		<exclude name="Squiz.Scope.MethodScope.Missing"/>
