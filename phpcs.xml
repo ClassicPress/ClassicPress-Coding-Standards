@@ -71,9 +71,7 @@
 
 		<!-- Remove Squiz Specific rules -->
 		<exclude name="Squiz.Arrays.ArrayBracketSpacing.SpaceBeforeBracket"/>
-		<exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceAfterEquals"/>
-		<exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpaceBeforeEquals"/>
-		<exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing.SpacingAfterOpen"/>
+		<exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing"/>
 		<exclude name="Squiz.Operators.IncrementDecrementUsage.Found"/>
 		<exclude name="Squiz.Operators.ValidLogicalOperators.NotAllowed"/>
 		<exclude name="Squiz.PHP.CommentedOutCode.Found"/>
