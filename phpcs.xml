@@ -59,6 +59,7 @@
 		<exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict"/>
 		<exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
 		<exclude name="WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents"/>
+		<exclude name="WordPress.WP.DeprecatedFunctions.sanitize_urlFound"/>
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.MissingVersion"/>
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.NoExplicitVersion"/>
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.NotInFooter"/>
